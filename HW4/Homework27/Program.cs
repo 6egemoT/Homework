@@ -2,21 +2,24 @@
 //  число и выдаёт сумму цифр в числе.
 
 
-Console.Write("N = ");
-int N = Convert.ToInt32(Console.ReadLine()); 
+Console.Write("Введите число N: ");
+int numbN = Convert.ToInt32(Console.ReadLine());
 
-void Summa(string[] args)
+int SummaNumb(int numbN)
 {
-    int sum = 0;
-    while (N > 0)
+
+    int counter = Convert.ToString(numbN).Length;
+    int temp = 0;
+    int result = 0;
+
+    for (int i = 0; i < counter; i++)
     {
-        sum += N % 10;
-        N /= 10;
+        temp = numbN - numbN % 10;
+        result = result + (numbN - temp);
+        numbN = numbN / 10;
     }
-    Console.WriteLine(sum);
+    return result;
 }
 
-
-
-int Expon = Stepen(numbA, numbB);
-Console.Write("ответ  " + Summa(string[] args));
+int sumNumb = SummaNumb(numbN);
+Console.WriteLine("Сумма цифр : " + sumNumb);
